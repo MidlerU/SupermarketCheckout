@@ -1,76 +1,23 @@
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace SupermarketCheckout
 {
     public partial class QuantityDialog : Form
     {
-        public int Quantity;  // количество которое ввёл пользователь
+        public int Quantity { get; private set; }
 
         public QuantityDialog()
         {
             InitializeComponent();
-            Quantity = 1;  // по умолчанию 1 штука
+            Quantity = 1;
         }
 
-        private void InitializeComponent()
-        {
-            // Настройки окна
-            this.Text = "Введите количество";
-            this.Size = new Size(300, 150);
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-
-            // Метка
-            Label lblQuantity = new Label();
-            lblQuantity.Text = "Количество:";
-            lblQuantity.Location = new Point(20, 20);
-            lblQuantity.Size = new Size(100, 23);
-            this.Controls.Add(lblQuantity);
-
-            // Поле ввода числа
-            NumericUpDown nudQuantity = new NumericUpDown();
-            nudQuantity.Name = "nudQuantity";
-            nudQuantity.Location = new Point(130, 18);
-            nudQuantity.Size = new Size(100, 23);
-            nudQuantity.Minimum = 1;
-            nudQuantity.Maximum = 999;
-            nudQuantity.Value = 1;
-            this.Controls.Add(nudQuantity);
-
-            // Кнопка OK
-            Button btnOk = new Button();
-            btnOk.Text = "OK";
-            btnOk.Location = new Point(50, 60);
-            btnOk.Size = new Size(75, 30);
-            btnOk.DialogResult = DialogResult.OK;
-            this.Controls.Add(btnOk);
-
-            // Кнопка Отмена
-            Button btnCancel = new Button();
-            btnCancel.Text = "Отмена";
-            btnCancel.Location = new Point(150, 60);
-            btnCancel.Size = new Size(75, 30);
-            btnCancel.DialogResult = DialogResult.Cancel;
-            this.Controls.Add(btnCancel);
-
-            // OK по Enter, Отмена по Escape
-            this.AcceptButton = btnOk;
-            this.CancelButton = btnCancel;
-        }
-
-        // Когда форма закрывается
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            // Если нажали OK
             if (this.DialogResult == DialogResult.OK)
             {
-                // Получаем количество из поля
-                NumericUpDown nud = (NumericUpDown)this.Controls["nudQuantity"];
-                Quantity = (int)nud.Value;
+                Quantity = (int)nudQuantity.Value;
             }
             base.OnFormClosing(e);
         }
