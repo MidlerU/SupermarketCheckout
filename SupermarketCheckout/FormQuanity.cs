@@ -6,23 +6,25 @@ namespace SupermarketCheckout
 {
     public partial class FormQuanity : Form
     {
-        public int Quantity;  // количество которое ввёл пользователь
+        public int Quantity;
 
         public FormQuanity()
         {
             InitializeComponent();
-            Quantity = 1;  // по умолчанию 1 штука
+            Quantity = 1;
         }
-
         private void FormQuanity_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        // Когда форма закрывается
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            
+            if (this.DialogResult == DialogResult.OK)
+            {
+                Quantity = (int)numericUpDownQuanity.Value;
+            }
+            base.OnFormClosing(e);
         }
     }
 }
