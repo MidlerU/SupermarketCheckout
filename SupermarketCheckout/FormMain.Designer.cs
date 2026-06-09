@@ -55,6 +55,7 @@
             this.listBoxProducts.Name = "listBoxProducts";
             this.listBoxProducts.Size = new System.Drawing.Size(270, 368);
             this.listBoxProducts.TabIndex = 0;
+            this.listBoxProducts.Click += new System.EventHandler(this.listBoxProducts_Click);
             // 
             // groupBoxReceipt
             // 
