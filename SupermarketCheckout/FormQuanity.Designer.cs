@@ -1,6 +1,6 @@
 ﻿namespace SupermarketCheckout
 {
-    partial class Form1
+    partial class FormQuanity
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormQuanity
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Name = "FormQuanity";
+            this.Text = "FormQuanity";
+            this.Load += new System.EventHandler(this.FormQuanity_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
